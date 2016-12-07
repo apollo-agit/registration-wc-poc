@@ -62,6 +62,9 @@
             },
             css: {
                 src: '**/*.css'
+            },
+            html: {
+                src: '**/*.html'
             }
         },
 
@@ -145,13 +148,13 @@
     });
 
     grunt.registerTask('buildcss', ['sass:dist', 'bowercopy:css']);
-    grunt.registerTask('buildjs', ['concat_in_order:dist', 'bowercopy:js']);
-    grunt.registerTask('copyassets', ['copy:images', 'copy:fonts', 'copy:html']);
+    grunt.registerTask('buildjs', ['bowercopy:js']);
+    grunt.registerTask('copyassets', ['copy:html', 'bowercopy:html']);
     grunt.registerTask('copyserver', ['copy:server']);
 
     grunt.registerTask('serverwatch', ['express:server', 'watch']);
 
-    grunt.registerTask('dist', ['clean', 'buildcss', 'buildjs', 'copyassets', 'copyserver']);
+    grunt.registerTask('dist', ['clean', 'buildjs', 'copyassets', 'copyserver']);
 
 
 

@@ -8,6 +8,6 @@ POC for a web component based POC
 * cd registration-wc-poc
 * npm install
 * bower install
-* grunt build
+* grunt dist
 * grunt serverwatch
 ```

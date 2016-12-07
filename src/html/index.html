@@ -1,11 +1,56 @@
+<!doctype html>
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/registration-wc-poc.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <title>Registration WC POC</title>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-card/paper-card.html">
+    <link rel="import" href="views/registration-view.html">
+    <style is="custom-style">
+    .dark {
+        background: #3f51b5;
+    }
+    
+ 
+    paper-card {
+        color: white;
+        --paper-card-header-color: white;
+        @apply(--layout-vertical);
+        @apply(--layout-wrap);
+        box-sizing: border-box;
+        margin: 8px;
+        flex: 0 0 auto;
+    }
+    
+    .centered {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style>
 </head>
 
-	<body>
-	    <h3>POC</h3>
-	</body>
+<body>
+    <paper-toolbar class="medium">
+        <paper-icon-button icon="menu"></paper-icon-button>
+        <span class="title"><h2>Client WC Consumer Screen</h2></span>
+        <paper-icon-button icon="refresh"></paper-icon-button>
+        <paper-icon-button icon="add">+</paper-icon-button>
+    </paper-toolbar>
+    <div class="centered">
+        <paper-card class="dark" heading="Client Root Dom Section" elevation="3">
+            <div class="card-content">
+            </div>
+            <div class="card-actions">
+            </div>
+        </paper-card>
+    </div>
+    <registration-view></registration-view>
+</body>
 
 </html>

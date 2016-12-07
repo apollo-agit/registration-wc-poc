@@ -1,0 +1,90 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<dom-module id="registration-view">
+    <template>
+        <style is="custom-style">
+        paper-dropdown-menu.custom {
+            color: white;
+            --paper-input-container-label: {
+                color: white;
+            }
+            --paper-dropdown-menu-input: {
+                .paper-input-container-1 .unfocused-line.paper-input-container {
+                    border-bottom: 1px solid #fff;
+                }
+            }
+        }
+        
+        paper-input {
+            --paper-input-color: #fff;
+            --paper-input-container-color: #fff;
+        }
+        
+        .light {
+            background: var(--paper-amber-900);
+        }
+        
+        paper-button.reg {
+            background-color: var(--paper-indigo-500);
+        }
+        
+        paper-card {
+            color: white;
+            --paper-card-header-color: white;
+            @apply(--layout-vertical);
+            @apply(--layout-wrap);
+            box-sizing: border-box;
+            margin: 8px;
+            flex: 0 0 auto;
+        }
+        
+        .centered {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        </style>
+        <div class="centered">
+            <paper-card class="light" heading="Remote Web Component Form" elevation="3">
+                <div class="card-content">
+                    <paper-input label="First Name" class="reg"></paper-input>
+                    <paper-input label="Middle Name"></paper-input>
+                    <paper-input label="Last Name"></paper-input>
+                    <paper-input label="email" id="inputWithButton">
+                        <iron-icon icon="mail" prefix></iron-icon>
+                        <div suffix>@email.com</div>
+                        <paper-icon-button suffix onclick="clearInput()" icon="clear" alt="clear" title="clear">
+                        </paper-icon-button>
+                    </paper-input>
+                    <paper-input label="Street Address"></paper-input>
+                    <paper-input label="City"></paper-input>
+                    <paper-dropdown-menu label="State" class="custom" herizontal-align>
+                        <paper-listbox class="dropdown-content">
+                            <paper-item>AL</paper-item>
+                            <paper-item>CA</paper-item>
+                            <paper-item>IL</paper-item>
+                            <paper-item>MN</paper-item>
+                        </paper-listbox>
+                    </paper-dropdown-menu>
+                    <paper-input label="Zip"></paper-input>
+                </div>
+                <div class="card-actions">
+                    <paper-button raised class="reg">
+                        <iron-icon icon="file-download"></iron-icon>Register</paper-button>
+                </div>
+            </paper-card>
+        </div>
+    </template>
+    <script>
+    Polymer({
+        is: "registration-view",
+    });
+    </script>
+</dom-module>
