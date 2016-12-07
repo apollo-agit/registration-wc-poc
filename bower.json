@@ -1,0 +1,16 @@
+{
+  "name": "registration-wc-poc",
+  "version": "1.0.0",
+  "authors": [
+    "Ian"
+  ],
+  "description": "choose your own adventure mobile game",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/apollo-agit/registration-wc-poc",
+  "private": true,
+  "dependencies": {
+    "foundation-sites": "^6.2.4"
+  }
+}

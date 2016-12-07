@@ -1,0 +1,27 @@
+#npm
+npm-debug.log
+
+#SASS
+.sass-cache/
+
+.DS_Store
+
+.baseDir.ts
+
+typings/
+
+#ignore the build directory
+build/
+
+.node_modules/
+.bower_components/
+
+node_modules/
+bower_components/
+dist/
+
+uploads/
+
+src/tmp/
+
+# End of file
