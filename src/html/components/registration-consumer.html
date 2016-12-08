@@ -1,0 +1,67 @@
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-badge/paper-badge.html">
+<dom-module id="registration-consumer">
+    <template>
+        <style is="custom-style">
+        paper-card {
+            color: white;
+            --paper-card-header-color: white;
+            @apply(--layout-vertical);
+            @apply(--layout-wrap);
+            box-sizing: border-box;
+            margin: 8px;
+            flex: 0 0 auto;
+        }
+        
+        .light {
+            background: var(--paper-amber-900);
+        }
+
+        .centered {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .dark {
+            background: #3f51b5;
+        }
+        
+        .blue {
+            --paper-badge-background: var(--paper-light-blue-300);
+        }
+        </style>
+        <div class="centered">
+            <paper-card class="dark" heading="Client Root Dom Section" elevation="3">
+                <div class="card-content">
+                    <paper-icon-button id="icon2" icon="account-box" alt="account-box">
+                    </paper-icon-button>
+                    <paper-badge id="success-icon" icon="social:mood" for="icon2" label="happy" class="blue" hidden="true">
+                    </paper-badge>
+                    <paper-material id="profileId" elevation="1" class="light" hidden="true">
+                    </paper-material>
+                </div>
+                <div class="card-actions">
+                </div>
+            </paper-card>
+        </div>
+    </template>
+    <script>
+    Polymer({
+        is: "registration-consumer"
+    });
+    </script>
+    <script>
+    document.querySelector('registration-view').addEventListener('profileEvent', function(e) {
+        console.log(e.detail);
+        var profile = e.detail;
+        document.querySelector('#profileId').innerHTML = profile.profileId;
+        document.querySelector('#success-icon').hidden = false;
+        document.querySelector('#profileId').hidden = false;
+    })
+    </script>
+</dom-module>
