@@ -25,6 +25,7 @@
     "paper-item": "PolymerElements/paper-item#^1.2.1",
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
     "paper-badge": "PolymerElements/paper-badge#^1.1.4",
-    "paper-material": "PolymerElements/paper-material#^1.0.6"
+    "paper-material": "PolymerElements/paper-material#^1.0.6",
+    "json-human": "^0.1.1"
   }
 }
