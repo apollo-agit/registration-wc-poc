@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
@@ -54,18 +55,18 @@
         <div class="centered">
             <paper-card class="light" heading="Remote Web Component Form" elevation="3">
                 <div class="card-content">
-                    <paper-input label="First Name" class="reg"></paper-input>
-                    <paper-input label="Middle Name"></paper-input>
-                    <paper-input label="Last Name"></paper-input>
-                    <paper-input label="email" id="inputWithButton">
+                    <paper-input label="First Name" class="reg" bind-value="{{firstName}}"></paper-input>
+                    <paper-input label="Middle Name" bind-value="{{middleName}}"></paper-input>
+                    <paper-input label="Last Name" bind-value="{{lastName}}"></paper-input>
+                    <paper-input label="email" id="inputWithButton" bind-value="{{email}}">
                         <iron-icon icon="mail" prefix></iron-icon>
                         <div suffix>@email.com</div>
                         <paper-icon-button suffix onclick="clearInput()" icon="clear" alt="clear" title="clear">
                         </paper-icon-button>
                     </paper-input>
-                    <paper-input label="Street Address"></paper-input>
-                    <paper-input label="City"></paper-input>
-                    <paper-dropdown-menu label="State" class="custom" herizontal-align>
+                    <paper-input label="Street Address" bind-value="{{street}}"></paper-input>
+                    <paper-input label="City" bind-value="{{city}}"></paper-input>
+                    <paper-dropdown-menu label="State" class="custom" herizontal-align bind-value="{{state}}">
                         <paper-listbox class="dropdown-content">
                             <paper-item>AL</paper-item>
                             <paper-item>CA</paper-item>
@@ -73,18 +74,56 @@
                             <paper-item>MN</paper-item>
                         </paper-listbox>
                     </paper-dropdown-menu>
-                    <paper-input label="Zip"></paper-input>
+                    <paper-input label="Zip" bind-value="{{zipcode}}"></paper-input>
                 </div>
                 <div class="card-actions">
-                    <paper-button raised class="reg">
+                    <paper-button raised class="reg" on-click="handleClick">
                         <iron-icon icon="file-download"></iron-icon>Register</paper-button>
                 </div>
             </paper-card>
         </div>
+
+        <iron-ajax id="profileService" method="POST" content-type="application/json" body="{{profile}}" url="http://localhost:9000/api/profile" handle-as="json" on-response="handleResponse" debounce-duration="300"></iron-ajax>
+
     </template>
     <script>
     Polymer({
         is: "registration-view",
+
+        properties: {
+            profile: {
+                type: Object,
+                notify: false,
+                reflectToAttribute: false
+            },
+            remoteProfile: {
+                type: Object,
+                notify: false,
+                reflectToAttribute: false
+            }
+        },
+
+        handleClick: function(e, detail) {
+            var person = {
+                firstName: this.firstName,
+                middleName: this.middleName,
+                lastName: this.lastName,
+                email: this.email,
+                street: this.street,
+                city: this.city,
+                state: this.state,
+                zip: this.zipcode
+            };
+            this.profile = person;
+
+            var service = document.querySelector('#profileService');
+            service.generateRequest();
+        },
+
+        handleResponse: function(e, res) {
+            this.remoteProfile = res.parseResponse();
+            this.fire('profileEvent', this.remoteProfile);
+        }
     });
     </script>
 </dom-module>

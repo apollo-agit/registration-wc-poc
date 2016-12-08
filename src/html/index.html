@@ -16,7 +16,6 @@
         background: #3f51b5;
     }
     
- 
     paper-card {
         color: white;
         --paper-card-header-color: white;
@@ -51,6 +50,11 @@
         </paper-card>
     </div>
     <registration-view></registration-view>
+    <script>
+    document.querySelector('registration-view').addEventListener('profileEvent', function(e) {
+        console.log(e.detail);
+    })
+    </script>
 </body>
 
 </html>
