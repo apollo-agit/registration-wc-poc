@@ -163,7 +163,7 @@
     });
 
     grunt.registerTask('buildjs', ['bowercopy:js']);
-    grunt.registerTask('copyassets', ['copy:html', 'bowercopy:html']);
+    grunt.registerTask('copyassets', ['copy:html', 'bowercopy:html', 'bowercopy:css']);
     grunt.registerTask('copyserver', ['copy:server']);
 
     grunt.registerTask('serverwatch', ['express:server', 'watch']);
