@@ -20,9 +20,9 @@
         .light {
             background: var(--paper-amber-900);
         }
-
+        
         .centered {
-            max-width: 800px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -34,6 +34,14 @@
         .blue {
             --paper-badge-background: var(--paper-light-blue-300);
         }
+        
+        paper-card {
+            --paper-card-header: {
+                @apply(--layout-vertical);
+                @apply(--layout-center);
+            }
+            ;
+        }
         </style>
         <div class="centered">
             <paper-card class="dark" heading="Client Root Dom Section" elevation="3">
@@ -44,8 +52,6 @@
                     </paper-badge>
                     <paper-material id="profileId" elevation="1" class="light" hidden="true">
                     </paper-material>
-                </div>
-                <div class="card-actions">
                 </div>
             </paper-card>
         </div>

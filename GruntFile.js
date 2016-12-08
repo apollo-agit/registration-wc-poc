@@ -5,14 +5,29 @@
         useminPrepare: 'grunt-usemin'
     });
 
-    // Configurable paths
     var config = {
-        app: 'src',
-        dist: 'dist/public',
-        root: 'dist/',
-        server: 'server',
-        distserver: 'dist/server'
-    };
+                app: 'src',
+                dist: 'dist/public',
+                root: 'dist/',
+                server: 'server',
+                distserver: 'dist/server'
+            };
+
+    var env = grunt.option('target') || "local";
+
+    if (env && env === 'remote') {
+    
+    config = {
+                app: 'src-remote',
+                dist: 'dist-remote/public',
+                root: 'dist-remote/',
+                server: 'server-remote',
+                distserver: 'dist-remote/server'
+        }
+    }
+
+    console.log(config);
+
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -147,7 +162,6 @@
 
     });
 
-    grunt.registerTask('buildcss', ['sass:dist', 'bowercopy:css']);
     grunt.registerTask('buildjs', ['bowercopy:js']);
     grunt.registerTask('copyassets', ['copy:html', 'bowercopy:html']);
     grunt.registerTask('copyserver', ['copy:server']);
@@ -156,6 +170,6 @@
 
     grunt.registerTask('dist', ['clean', 'buildjs', 'copyassets', 'copyserver']);
 
-
+ 
 
 };
