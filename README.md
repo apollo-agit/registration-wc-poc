@@ -24,8 +24,8 @@ git clone https://github.com/apollo-agit/registration-wc-poc.git
 cd registration-wc-poc
 npm install
 bower install
-grunt dist --target='local'
-grunt dist --target='remote'
+grunt dist --target=local
+grunt dist --target=remote
 ```
 
 ## How to Run
