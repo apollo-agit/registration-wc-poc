@@ -6,24 +6,9 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <title>Registration WC POC</title>
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="bower_components/polymer/polymer.html">
 
-    <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
-    <link rel="import" href="bower_components/iron-icon/iron-icon.html">
-    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
-    <link rel="import" href="bower_components/iron-input/iron-input.html">
-    <link rel="import" href="bower_components/paper-input/paper-input.html">
-    <link rel="import" href="bower_components/paper-listbox/paper-listbox.html">
-    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-    <link rel="import" href="bower_components/paper-button/paper-button.html">
-    <link rel="import" href="bower_components/paper-item/paper-item.html">
-    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-    <link rel="import" href="components/registration-consumer.html">
-    <link rel="import" href="http://localhost:5555/components/remote-registration-component.html">
-
-
-
+    <link rel="import" href="components/apollo-toolbar/apollo-toolbar.html">
+    <link rel="import" href="components/self-registration/self-registration.html">
     <style is="custom-style">  
     
         h1, h2, h3 {
@@ -35,16 +20,11 @@
 </head>
 
 <body>
-    <paper-toolbar class="tall">
-        <paper-icon-button icon="menu"></paper-icon-button>
-        <span class="title"><h2>Apollo - Registration POC</h2></span>
-        <span class="middle title"><h4>Client Consumer Screen</h4></span>
-        <paper-icon-button icon="refresh"></paper-icon-button>
-        <paper-icon-button icon="add">+</paper-icon-button>
-    </paper-toolbar>
+ 
 
-    <registration-consumer></registration-consumer>
-    <remote-registration-component></remote-registration-component>
+    <apollo-toolbar></apollo-toolbar>
+    <self-registration></self-registration>
+    
 
 </body>
 

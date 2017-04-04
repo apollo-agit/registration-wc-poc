@@ -1,0 +1,167 @@
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+
+
+
+<dom-module id="self-registration">
+    <template>
+        <style is="custom-style">
+        paper-dropdown-menu.custom {
+            margin-right: 1rem;
+            color: var(--paper-grey);
+            --paper-input-container-label: {
+                color: var(--paper-grey);
+            }
+            --paper-dropdown-menu-input: {
+                .paper-input-container-1 .unfocused-line.paper-input-container {
+                    border-bottom: 1px solid var(--paper-grey);
+                }
+            }
+        }
+        
+        paper-input {
+            max-width: 400px;
+            margin-right: 1rem;
+            --paper-input-color: var(--paper-grey);
+            --paper-input-container-color: var(--paper-grey);
+            --iron-icon-1 {
+                background: var(--paper-grey);
+            }
+        }
+        
+        paper-card {
+            color: var(--paper-grey);
+            --paper-card-header-color: white;
+            @apply(--layout-vertical);
+            @apply(--layout-wrap);
+            box-sizing: border-box;
+            flex: 0 0 auto;
+        }
+        
+        .horizontal-section-container {
+            @apply(--layout-horizontal);
+            @apply(--layout-left-justified);
+            @apply(--layout-wrap);
+        }
+        
+        .centered {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        paper-checkbox.blue {
+            align-self: center;
+            border: 1px solid var(--paper-blue-200);
+            padding: 8px 16px;
+            --paper-checkbox-checked-color: var(--paper-light-blue-500);
+            --paper-checkbox-checked-ink-color: var(--paper-light-blue-500);
+            --paper-checkbox-unchecked-color: var(--paper-light-blue-900);
+            --paper-checkbox-unchecked-ink-color: var(--paper-light-blue-900);
+            --paper-checkbox-label-color: var(--paper-blue-500);
+            --paper-checkbox-label-spacing: 0;
+            --paper-checkbox-margin: 8px 16px 8px 0;
+            --paper-checkbox-vertical-align: top;
+            margin-top: 1rem;
+        }
+        </style>
+        <div class="centered">
+            <paper-card class="light" heading="Remote Web Component Form" elevation="3">
+                <div class="horizontal-section">
+                    <div class="card-content">
+                        <div class="horizontal-section-container">
+                            <paper-dropdown-menu label="Title" class="custom" herizontal-align bind-value="{{title}}">
+                                <paper-listbox class="dropdown-content">
+                                    <paper-item>""</paper-item>
+                                    <paper-item>Mr</paper-item>
+                                    <paper-item>Mrs</paper-item>
+                                    <paper-item>Ms</paper-item>
+                                    <paper-item>Dr</paper-item>
+                                </paper-listbox>
+                            </paper-dropdown-menu>
+                            <paper-input label="First Name" bind-value="{{firstName}}"></paper-input>
+                            <paper-input label="Last Name" bind-value="{{lastName}}"></paper-input>
+                        </div>
+                    </div>
+                    <paper-input label="email" id="inputWithButton" bind-value="{{email}}">
+                        <iron-icon icon="mail" prefix></iron-icon>
+                    </paper-input>
+                    <paper-input label="Street Address" bind-value="{{street}}"></paper-input>
+                    <paper-input label="City" bind-value="{{city}}"></paper-input>
+                    <paper-dropdown-menu label="State" class="custom" herizontal-align bind-value="{{state}}">
+                        <paper-listbox class="dropdown-content">
+                            <paper-item>AL</paper-item>
+                            <paper-item>CA</paper-item>
+                            <paper-item>IL</paper-item>
+                            <paper-item>MN</paper-item>
+                        </paper-listbox>
+                    </paper-dropdown-menu>
+                    <paper-input label="Zip" bind-value="{{zipcode}}"></paper-input>
+                    <paper-input label="Phone" bind-value="{{phone}}"></paper-input>
+                </div>
+                <div>
+                    <paper-checkbox checked class="blue">
+                        Opt in Marketing Email
+                    </paper-checkbox>
+                </div>
+                <div>
+                    <paper-checkbox checked class="blue">
+                        Opt in Marketing Phone
+                    </paper-checkbox>
+                </div>
+            </paper-card>
+        </div>
+
+        <iron-ajax id="profileService" method="POST" content-type="application/json" body="{{profile}}" url="http://localhost:5555/api/profile" handle-as="json" on-response="handleResponse" debounce-duration="300"></iron-ajax>
+
+    </template>
+    <script>
+    Polymer({
+        is: "self-registration",
+
+        properties: {
+            profile: {
+                type: Object,
+                notify: false,
+                reflectToAttribute: false
+            },
+            remoteProfile: {
+                type: Object,
+                notify: false,
+                reflectToAttribute: false
+            }
+        },
+
+        handleClick: function(e, detail) {
+            var person = {
+                firstName: this.firstName,
+                middleName: this.middleName,
+                lastName: this.lastName,
+                email: this.email,
+                street: this.street,
+                city: this.city,
+                state: this.state,
+                zip: this.zipcode
+            };
+            this.profile = person;
+
+            var service = document.querySelector('#profileService');
+            service.generateRequest();
+        },
+
+        handleResponse: function(e, res) {
+            this.remoteProfile = res.parseResponse();
+            this.fire('profileEvent', this.remoteProfile);
+        }
+    });
+    </script>
+</dom-module>
