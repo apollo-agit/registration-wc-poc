@@ -1,10 +1,11 @@
+<!doctype html>
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html">
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-<!doctype html>
 <link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -13,6 +14,9 @@
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-item.html">
+<link rel="import" href="../../bower_components/re-captcha/re-captcha.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
 
 <link rel="import" href="../apollo-style/apollo-style.html">
 <link rel="import" href="../apollo-address/apollo-address.html">
@@ -40,8 +44,42 @@
             margin-top: .5rem;
         }
         
+        div .spacer.top.one {
+            margin-top: 2rem;
+        }
+        
         div .spacer.buttom {
             margin-bottom: 1.5rem;
+        }
+        
+        iron-icon.white {
+            color: var(--apollo-white);
+        }
+        
+        paper-button.warn {
+            background: var(--apollo-warn-color)
+        }
+        
+        .vertical-section-container {
+            max-width: 400px;
+        }
+        
+        #successdiag{
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #successdiag h2 {
+            text-align: center;
+        }
+        
+        .sucess-diag p {
+            color: var(--apollo-primary-color);
+        }
+
+        paper-button.apollo-white {
+            background: white;
         }
         </style>
         <paper-card class="custom" elevation="3">
@@ -50,7 +88,6 @@
                     <div class="horizontal-section-container">
                         <paper-dropdown-menu label="Title" class="custom" herizontal-align bind-value="{{profile.title}}">
                             <paper-listbox class="dropdown-content">
-                                <paper-item>""</paper-item>
                                 <paper-item>Mr</paper-item>
                                 <paper-item>Mrs</paper-item>
                                 <paper-item>Ms</paper-item>
@@ -61,39 +98,63 @@
                         <paper-input label="Last Name" bind-value="{{profile.lastName}}"></paper-input>
                     </div>
                 </div>
-                <paper-input label="Email" id="inputWithButton" bind-value="{{profile.email}}">
-                    <iron-icon icon="mail" prefix></iron-icon>
-                </paper-input>
-                <apollo-password ></apollo-password>
-                <apollo-address address-line1="{{profile.addressLine1}}"
-                    address-line2="{{profile.addressLine2}}"
-                    city="{{profile.city}}"
-                    state="{{profile.state}}"
-                    postal-code="{{profile.postalCode}}"
-                    country-selection="{{profile.countrySelection}}"></apollo-address>
-                <paper-input label="Phone" bind-value="{{profile.phone}}"></paper-input>
-                <paper-date-picker-item icon="icons:date-range" placeholder="Select Date of Birth" date="{{profile.dob}}" date-format="ll"></paper-date-picker-item>
-                <div class="spacer bottom">
-                    <div>
-                        <paper-checkbox checked class="accent">
-                            Yes! Send me announcements by email.
-                        </paper-checkbox>
+                <div class="vertical-section-container">
+                    <paper-input label="Email" id="inputWithButton" bind-value="{{profile.email}}">
+                        <iron-icon icon="mail" prefix></iron-icon>
+                    </paper-input>
+                    <apollo-password></apollo-password>
+                    <apollo-address address-line1="{{profile.addressLine1}}" address-line2="{{profile.addressLine2}}" city="{{profile.city}}" state="{{profile.state}}" postal-code="{{profile.postalCode}}"></apollo-address>
+                    <paper-input label="Phone" bind-value="{{profile.phone}}"></paper-input>
+
+                    <paper-date-picker-item id="dob" icon="icons:date-range" placeholder="Select Date of Birth" date="{{profile.dob}}" date-format="ll"></paper-date-picker-item>
+
+
+                    <div class="spacer bottom">
+                        <div>
+                            <paper-checkbox checked class="accent">
+                                Yes! Send me announcements by email.
+                            </paper-checkbox>
+                        </div>
+                        <div>
+                            <paper-checkbox checked class="accent">
+                                Yes! Please call me with vital updates.
+                            </paper-checkbox>
+                        </div>
                     </div>
-                    <div>
-                        <paper-checkbox checked class="accent">
-                            Yes! Please call me with vital updates.
-                        </paper-checkbox>
+                    <div class="spacer top one">
+                        <re-captcha sitekey="6Le0cg8UAAAAAGTb4f58fq89dyjAw5rFE3vMdwuy"></re-captcha>
                     </div>
                 </div>
             </div>
             <div class="card-actions">
                 <div class="spacer top buttom">
                     <paper-button raised class="" on-click="handleClick">
-                        <iron-icon icon="file-download"></iron-icon>Register</paper-button>
+                        <iron-icon class="white" icon="add-circle"></iron-icon>Register</paper-button>
+
+                    <paper-button raised class="warn" on-click="handleCancel">
+                        <iron-icon class="white" icon="cancel"></iron-icon>Cancel</paper-button>
                 </div>
             </div>
         </paper-card>
-        <iron-ajax id="profileService" method="POST" content-type="application/json" body="{{profile}}" url="http://localhost:5555/api/profile" handle-as="json" on-response="handleResponse" debounce-duration="300"></iron-ajax>
+        <iron-ajax id="profileService" method="POST" content-type="application/json" body="{{profile}}" url="http://localhost:5555/api/profile" handle-as="json" on-response="handleResponse" debounce-duration="300">
+        </iron-ajax>
+
+ 
+            <paper-dialog id="successdiag"  modal>
+                <div class="sucess-diag">
+                    <h2>{{profile.firstName}} {{profile.lastName}}</h2>
+                    <paper-dialog-scrollable>
+                        <p>Thank you for regerstring.</p>
+                        <p>Please continue to shopping cart.</p>
+                    </paper-dialog-scrollable>
+                    <div class="buttons center">      
+                        <iron-icon icon="av:play-circle-outline"></iron-icon>
+                    </div>
+                </div>
+
+            </paper-dialog>
+    
+
     </template>
     <script>
     Polymer({
@@ -104,24 +165,23 @@
                 type: Object,
                 notify: false,
                 reflectToAttribute: true,
-                value: function(){
+                value: function() {
                     return {
-                      title: '',
-                      firstName: '',
-                      lastName: '',
-                      addressLine1: '',
-                      addressLine2: '',
-                      city: '',
-                      state: '',
-                      postalCode: '',
-                      countrySelection: '',
-                      phone: '',
-                      dob: '',
-                      optEmail: true,
-                      optPhone: true
+                        title: '',
+                        firstName: '',
+                        lastName: '',
+                        addressLine1: '',
+                        addressLine2: '',
+                        city: '',
+                        state: '',
+                        postalCode: '',
+                        phone: '',
+                        dob: '',
+                        optEmail: true,
+                        optPhone: true
                     };
-                  }
-              },
+                }
+            },
             remoteProfile: {
                 type: Object,
                 notify: false,
@@ -129,8 +189,10 @@
             }
         },
 
-        handleClick: function(e, detail) {          
+        handleClick: function(e, detail) {
             console.log(this.profile);
+
+            successdiag.open();
 
             //var service = document.querySelector('#profileService');
             //service.generateRequest();

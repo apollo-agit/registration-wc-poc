@@ -7,8 +7,9 @@
 <style is="custom-style">
 
 	:root  {
-		--apollo-primary-color: var(--paper-grey-400);
+		--apollo-primary-color: var(--paper-grey-500);
 		--apollo-accent-color: var(--paper-cyan-500);
+        --apollo-warn-color: var(--paper-pink-400);
 		--apollo-white: white;
 
 	    paper-dropdown-menu {
@@ -34,12 +35,26 @@
         paper-button {
         	--paper-button-ink-color: var(--apollo-accent-color);
         }
+
+  
+
+        paper-calendar: {
+            --primary-text-color: var(--apollo-accent-color);
+        }
+
+        .paper-date-picker-dialog {
+            background-color: var(--apollo-accent-color);
+        }
 	}
 
 	paper-button {
         color: var(--apollo-white);
         background: var(--apollo-accent-color);
     }
+
+    paper-button.apollo-white {
+            --paper-button-ink-color: var(--apollo-white);
+        }
 
     paper-input {
         max-width: 400px;
@@ -55,7 +70,15 @@
     }
 
     iron-icon {
-    	color: var(--apollo-primary-color);
+    	color: var(--apollo-accent-color);
+    }
+
+    iron-icon.paper-dropdown-menu {
+        background: var(--apollo-accent-color);
+    }
+
+    .paper-date-picker-dialog {
+        background-color: var(--apollo-accent-color);
     }
 
 </style>
