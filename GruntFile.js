@@ -142,7 +142,7 @@
             },
             html: {
                 files: ['<%= config.app %>/html/**/*.html', '<%= config.app %>/html/**/*.html'],
-                tasks: ['copyassets'],
+                tasks: ['copy:html'],
                 options: {
                     event: ['added', 'changed'],
                 }

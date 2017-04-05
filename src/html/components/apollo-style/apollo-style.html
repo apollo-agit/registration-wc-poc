@@ -1,12 +1,64 @@
 
 <link rel="import" href="../../bower_components/paper-styles/color.html">
 
+<dom-module id="apollo-style">
+
+  <template>
 <style is="custom-style">
 
 	:root  {
 		--apollo-primary-color: var(--paper-grey-400);
-		--apollo-accent-color: var(--paper-light-blue-500);
+		--apollo-accent-color: var(--paper-cyan-500);
+		--apollo-white: white;
+
+	    paper-dropdown-menu {
+            --paper-input-color: var(--apollo-primary-color);
+            --paper-input-container-color: var(--apollo-primary-color);
+            --paper-input-container-focus-color: var(--apollo-accent-color);            
+        }
+        
+        paper-input {
+            --paper-input-color: var(--apollo-primary-color);
+            --paper-input-container-color: var(--apollo-primary-color);
+            --paper-input-container-focus-color: var(--apollo-accent-color);
+        }
+
+        paper-checkbox {
+            --paper-checkbox-checked-color: var(--apollo-accent-color);
+            --paper-checkbox-checked-ink-color: var(--apollo-accent-color);
+            --paper-checkbox-unchecked-color: var(--apollo-accent-color);
+            --paper-checkbox-unchecked-ink-color: var(--apollo-accent-color);
+            --paper-checkbox-label-color: var(--apollo-primary-color);
+        }
+
+        paper-button {
+        	--paper-button-ink-color: var(--apollo-accent-color);
+        }
 	}
 
+	paper-button {
+        color: var(--apollo-white);
+        background: var(--apollo-accent-color);
+    }
+
+    paper-input {
+        max-width: 400px;
+        margin-right: 1rem;
+    }
+
+    paper-checkbox {
+        margin-top: 1.5rem;
+    }
+
+    paper-dropdown-menu {
+        margin-right: 1rem;
+    }
+
+    iron-icon {
+    	color: var(--apollo-primary-color);
+    }
+
 </style>
+</template>
+</dom-module>
 
