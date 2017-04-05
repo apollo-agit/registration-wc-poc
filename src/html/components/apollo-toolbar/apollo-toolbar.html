@@ -1,12 +1,56 @@
+
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 
 <dom-module id="apollo-toolbar">
+    <style>
+    paper-toolbar {
+        background: silver;
+    }
+    
+    iron-icon {
+        color: var(--paper-cyan-500);
+        width: 36px;
+        height: 36px;
+    }
+    
+    hr.title {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        border-style: solid;
+        border-width: 1px;
+        min-width: 200px;
+        max-height: 2px;
+        color: var(--paper-grey-700);
+        background-color: var(--paper-grey-700);
+    }
+    
+    .horizontal-section-container {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+        @apply(--layout-wrap);
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 300px;
+    }
+    </style>
     <template>
         <paper-toolbar class="tall">
             <paper-icon-button icon="menu"></paper-icon-button>
-            <span class="title"><h2>Apollo - Registration POC</h2></span>
-            <span class="middle title"><h4>Client Consumer Screen</h4></span>
+            <span class="title"><h2>BPP - Registration</h2></span>
+            <span class="middle horizontal-section-container">
+            <iron-icon icon="check-circle"></iron-icon>
+            <hr class="title">
+            <iron-icon icon="check-circle"></iron-icon>
+            <hr class="title">
+            <iron-icon icon="check-circle"></iron-icon>
+            </span>
             <paper-icon-button icon="refresh"></paper-icon-button>
             <paper-icon-button icon="add">+</paper-icon-button>
         </paper-toolbar>

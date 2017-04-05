@@ -9,35 +9,34 @@
 
     <link rel="import" href="components/apollo-toolbar/apollo-toolbar.html">
     <link rel="import" href="components/self-registration/self-registration.html">
-    <style is="custom-style">  
+    <style is="custom-style">
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
     
-        h1, h2, h3 {
-            text-align: center;
-        }
+    body {
+        background: Gainsboro;
+    }
     
-        body {
-
-            background: grey;
-        }
-
-        .centered {
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    
+    .centered {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     </style>
 </head>
 
 <body>
- 
 
-    <apollo-toolbar></apollo-toolbar>
+    <div class="centered">
+        <apollo-toolbar></apollo-toolbar>
 
-     <div class="centered">
-    <self-registration></self-registration>
+
+        <self-registration></self-registration>
     </div>
-    
+
 
 </body>
 
