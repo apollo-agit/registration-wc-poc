@@ -1,0 +1,280 @@
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+
+
+<dom-module id="countries-dropdown"> 
+	<template>
+	  
+	  <input is="iron-input" name="countryCode" id="countryCode" type="hidden" value$="[[selection]]">	
+	
+		<paper-dropdown-menu  label="Country" id="countryCodeList" name="countryCodeList">
+		    <paper-menu class="dropdown-content" selected="{{selection}}" attr-for-selected="value">
+				<paper-item value="AFG">Afghanistan</paper-item>
+				<paper-item value="ALA">Aland Islands</paper-item>
+				<paper-item value="ALB">Albania</paper-item>
+				<paper-item value="DZA">Algeria</paper-item>
+				<paper-item value="ASM">American Samoa</paper-item>
+				<paper-item value="AND">Andorra</paper-item>
+				<paper-item value="AGO">Angola</paper-item>
+				<paper-item value="AIA">Anguilla</paper-item>
+				<paper-item value="ATA">Antarctica</paper-item>
+				<paper-item value="ATG">Antigua and Barbuda</paper-item>
+				<paper-item value="ARG">Argentina</paper-item>
+				<paper-item value="ARM">Armenia</paper-item>
+				<paper-item value="ABW">Aruba</paper-item>
+				<paper-item value="ASC">Ascension Island</paper-item>
+				<paper-item value="AUS">Australia</paper-item>
+				<paper-item value="AUT">Austria</paper-item>
+				<paper-item value="AZE">Azerbaijan</paper-item>
+				<paper-item value="BHS">Bahamas</paper-item>
+				<paper-item value="BHR">Bahrain</paper-item>
+				<paper-item value="BGD">Bangladesh</paper-item>
+				<paper-item value="BRB">Barbados</paper-item>
+				<paper-item value="BLR">Belarus</paper-item>
+				<paper-item value="BEL">Belgium</paper-item>
+				<paper-item value="BLZ">Belize</paper-item>
+				<paper-item value="BEN">Benin</paper-item>
+				<paper-item value="BMU">Bermuda</paper-item>
+				<paper-item value="BTN">Bhutan</paper-item>
+				<paper-item value="BOL">Bolivia</paper-item>
+				<paper-item value="BES">Bonaire, Saint Eustatius and Saba</paper-item>
+				<paper-item value="BIH">Bosnia and Herzegovina</paper-item>
+				<paper-item value="BWA">Botswana</paper-item>
+				<paper-item value="BVT">Bouvet Island</paper-item>
+				<paper-item value="BRA">Brazil</paper-item>
+				<paper-item value="IOT">British Indian Ocean Territory</paper-item>
+				<paper-item value="VGB">British Virgin Islands</paper-item>
+				<paper-item value="BRN">Brunei Darussalam</paper-item>
+				<paper-item value="BGR">Bulgaria</paper-item>
+				<paper-item value="BFA">Burkina Faso</paper-item>
+				<paper-item value="BDI">Burundi</paper-item>
+				<paper-item value="KHM">Cambodia</paper-item>
+				<paper-item value="CMR">Cameroon</paper-item>
+				<paper-item value="CAN">Canada</paper-item>
+				<paper-item value="CPV">Cape Verde</paper-item>
+				<paper-item value="CYM">Cayman Islands</paper-item>
+				<paper-item value="CAF">Central African Republic</paper-item>
+				<paper-item value="TCD">Chad</paper-item>
+				<paper-item value="CHL">Chile</paper-item>
+				<paper-item value="CXR">Christmas Island</paper-item>
+				<paper-item value="CCK">Cocos (Keeling) Islands</paper-item>
+				<paper-item value="COL">Colombia</paper-item>
+				<paper-item value="COM">Comoros</paper-item>
+				<paper-item value="COK">Cook Islands</paper-item>
+				<paper-item value="CRI">Costa Rica</paper-item>
+				<paper-item value="CIV">Côte d Ivoire</paper-item>
+				<paper-item value="HRV">Croatia</paper-item>
+				<paper-item value="CUB">Cuba</paper-item>
+				<paper-item value="CUW">Curacao</paper-item>
+				<paper-item value="CYP">Cyprus</paper-item>
+				<paper-item value="CZE">Czech Republic</paper-item>
+				<paper-item value="PRK">Democratic Peoples Republic of Korea</paper-item>
+				<paper-item value="COD">Democratic Republic of the Congo</paper-item>
+				<paper-item value="DNK">Denmark</paper-item>
+				<paper-item value="DJI">Djibouti</paper-item>
+				<paper-item value="DMA">Dominica</paper-item>
+				<paper-item value="DOM">Dominican Republic</paper-item>
+				<paper-item value="ECU">Ecuador</paper-item>
+				<paper-item value="EGY">Egypt</paper-item>
+				<paper-item value="SLV">El Salvador</paper-item>
+				<paper-item value="GNQ">Equatorial Guinea</paper-item>
+				<paper-item value="ERI">Eritrea</paper-item>
+				<paper-item value="EST">Estonia</paper-item>
+				<paper-item value="ETH">Ethiopia</paper-item>
+				<paper-item value="FLK">Falkland Islands</paper-item>
+				<paper-item value="FRO">Faroe Islands</paper-item>
+				<paper-item value="FSM">Federated States of Micronesia</paper-item>
+				<paper-item value="FJI">Fiji</paper-item>
+				<paper-item value="FIN">Finland</paper-item>
+				<paper-item value="FRA">France</paper-item>
+				<paper-item value="GUF">French Guiana</paper-item>
+				<paper-item value="PYF">French Polynesia</paper-item>
+				<paper-item value="ATF">French Southern Territories</paper-item>
+				<paper-item value="GAB">Gabon</paper-item>
+				<paper-item value="GEO">Georgia</paper-item>
+				<paper-item value="DEU">Germany</paper-item>
+				<paper-item value="GHA">Ghana</paper-item>
+				<paper-item value="GIB">Gibraltar</paper-item>
+				<paper-item value="GRC">Greece</paper-item>
+				<paper-item value="GRL">Greenland</paper-item>
+				<paper-item value="GRD">Grenada</paper-item>
+				<paper-item value="GLP">Guadeloupe</paper-item>
+				<paper-item value="GUM">Guam</paper-item>
+				<paper-item value="GTM">Guatemala</paper-item>
+				<paper-item value="GGY">Guernsey</paper-item>
+				<paper-item value="GIN">Guinea</paper-item>
+				<paper-item value="GNB">Guinea-Bissau</paper-item>
+				<paper-item value="GUY">Guyana</paper-item>
+				<paper-item value="HTI">Haiti</paper-item>
+				<paper-item value="HMD">Heard &amp; Mcdonald Islands</paper-item>
+				<paper-item value="HND">Honduras</paper-item>
+				<paper-item value="HKG">Hong Kong</paper-item>
+				<paper-item value="HUN">Hungary</paper-item>
+				<paper-item value="ISL">Iceland</paper-item>
+				<paper-item value="IND">India</paper-item>
+				<paper-item value="IDN">Indonesia</paper-item>
+				<paper-item value="IRN">Iran</paper-item>
+				<paper-item value="IRQ">Iraq</paper-item>
+				<paper-item value="IRL">Ireland</paper-item>
+				<paper-item value="IMN">Isle of Man</paper-item>
+				<paper-item value="ISR">Israel</paper-item>
+				<paper-item value="ITA">Italy</paper-item>
+				<paper-item value="JAM">Jamaica</paper-item>
+				<paper-item value="JPN">Japan</paper-item>
+				<paper-item value="JEY">Jersey</paper-item>
+				<paper-item value="JOR">Jordan</paper-item>
+				<paper-item value="KAZ">Kazakhstan</paper-item>
+				<paper-item value="KEN">Kenya</paper-item>
+				<paper-item value="KIR">Kiribati</paper-item>
+				<paper-item value="KWT">Kuwait</paper-item>
+				<paper-item value="KGZ">Kyrgyzstan</paper-item>
+				<paper-item value="LAO">Laos</paper-item>
+				<paper-item value="LVA">Latvia</paper-item>
+				<paper-item value="LBN">Lebanon</paper-item>
+				<paper-item value="LSO">Lesotho</paper-item>
+				<paper-item value="LBR">Liberia</paper-item>
+				<paper-item value="LBY">Libya</paper-item>
+				<paper-item value="LIE">Liechtenstein</paper-item>
+				<paper-item value="LTU">Lithuania</paper-item>
+				<paper-item value="LUX">Luxembourg</paper-item>
+				<paper-item value="MAC">Macau</paper-item>
+				<paper-item value="MDG">Madagascar</paper-item>
+				<paper-item value="MWI">Malawi</paper-item>
+				<paper-item value="MYS">Malaysia</paper-item>
+				<paper-item value="MDV">Maldives</paper-item>
+				<paper-item value="MLI">Mali</paper-item>
+				<paper-item value="MLT">Malta</paper-item>
+				<paper-item value="MHL">Marshall Islands</paper-item>
+				<paper-item value="MTQ">Martinique</paper-item>
+				<paper-item value="MRT">Mauritania</paper-item>
+				<paper-item value="MUS">Mauritius</paper-item>
+				<paper-item value="MYT">Mayotte</paper-item>
+				<paper-item value="MEX">Mexico</paper-item>
+				<paper-item value="MDA">Moldova</paper-item>
+				<paper-item value="MCO">Monaco</paper-item>
+				<paper-item value="MNG">Mongolia</paper-item>
+				<paper-item value="MNE">Montenegro</paper-item>
+				<paper-item value="MSR">Montserrat</paper-item>
+				<paper-item value="MAR">Morocco</paper-item>
+				<paper-item value="MOZ">Mozambique</paper-item>
+				<paper-item value="MMR">Myanmar</paper-item>
+				<paper-item value="NAM">Namibia</paper-item>
+				<paper-item value="NRU">Nauru</paper-item>
+				<paper-item value="NPL">Nepal</paper-item>
+				<paper-item value="NLD">Netherlands</paper-item>
+				<paper-item value="ANT">Netherlands Antilles</paper-item>
+				<paper-item value="NCL">New Caledonia</paper-item>
+				<paper-item value="NZL">New Zealand</paper-item>
+				<paper-item value="NIC">Nicaragua</paper-item>
+				<paper-item value="NER">Niger</paper-item>
+				<paper-item value="NGA">Nigeria</paper-item>
+				<paper-item value="NIU">Niue</paper-item>
+				<paper-item value="NFK">Norfolk Island</paper-item>
+				<paper-item value="MNP">Northern Mariana Islands</paper-item>
+				<paper-item value="NOR">Norway</paper-item>
+				<paper-item value="OMN">Oman</paper-item>
+				<paper-item value="PAK">Pakistan</paper-item>
+				<paper-item value="PLW">Palau</paper-item>
+				<paper-item value="PSE">Palestine</paper-item>
+				<paper-item value="PAN">Panama</paper-item>
+				<paper-item value="PNG">Papua New Guinea</paper-item>
+				<paper-item value="PRY">Paraguay</paper-item>
+				<paper-item value="CHN">Peoples Republic of China</paper-item>
+				<paper-item value="PER">Peru</paper-item>
+				<paper-item value="PHL">Philippines</paper-item>
+				<paper-item value="PCN">Pitcairn Islands</paper-item>
+				<paper-item value="POL">Poland</paper-item>
+				<paper-item value="PRT">Portugal</paper-item>
+				<paper-item value="PRI">Puerto Rico</paper-item>
+				<paper-item value="QAT">Qatar</paper-item>
+				<paper-item value="TWN">Republic of China (Taiwan)</paper-item>
+				<paper-item value="KOR">Republic of Korea</paper-item>
+				<paper-item value="MKD">Republic of Macedonia</paper-item>
+				<paper-item value="COG">Republic of the Congo</paper-item>
+				<paper-item value="REU">Réunion</paper-item>
+				<paper-item value="ROU">Romania</paper-item>
+				<paper-item value="RUS">Russia</paper-item>
+				<paper-item value="RWA">Rwanda</paper-item>
+				<paper-item value="BLM">SAINT BARTHELEMY</paper-item>
+				<paper-item value="SHN">Saint Helena</paper-item>
+				<paper-item value="KNA">Saint Kitts and Nevis</paper-item>
+				<paper-item value="LCA">Saint Lucia</paper-item>
+				<paper-item value="MAF">SAINT MARTIN (FRENCH PART)</paper-item>
+				<paper-item value="VCT">Saint Vincent and the Grenadines</paper-item>
+				<paper-item value="SPM">Saint-Pierre and Miquelon</paper-item>
+				<paper-item value="WSM">Samoa</paper-item>
+				<paper-item value="SMR">San Marino</paper-item>
+				<paper-item value="STP">São Tomé and Príncipe</paper-item>
+				<paper-item value="SAU">Saudi Arabia</paper-item>
+				<paper-item value="SEN">Senegal</paper-item>
+				<paper-item value="SRB">Serbia</paper-item>
+				<paper-item value="SYC">Seychelles</paper-item>
+				<paper-item value="SLE">Sierra Leone</paper-item>
+				<paper-item value="SGP">Singapore</paper-item>
+				<paper-item value="SVK">Slovakia</paper-item>
+				<paper-item value="SVN">Slovenia</paper-item>
+				<paper-item value="SLB">Solomon Islands</paper-item>
+				<paper-item value="SOM">Somalia</paper-item>
+				<paper-item value="ZAF">South Africa</paper-item>
+				<paper-item value="SGS">South Georgia And The South Sandwich Islands</paper-item>
+				<paper-item value="SSD">South Sudan</paper-item>
+				<paper-item value="ESP">Spain</paper-item>
+				<paper-item value="LKA">Sri Lanka</paper-item>
+				<paper-item value="SDN">Sudan</paper-item>
+				<paper-item value="SUR">Suriname</paper-item>
+				<paper-item value="SJM">Svalbard and Jan Mayen Islands</paper-item>
+				<paper-item value="SWZ">Swaziland</paper-item>
+				<paper-item value="SWE">Sweden</paper-item>
+				<paper-item value="CHE">Switzerland</paper-item>
+				<paper-item value="SYR">Syria</paper-item>
+				<paper-item value="TJK">Tajikistan</paper-item>
+				<paper-item value="TZA">Tanzania</paper-item>
+				<paper-item value="THA">Thailand</paper-item>
+				<paper-item value="GMB">The Gambia</paper-item>
+				<paper-item value="TLS">Timor-Leste</paper-item>
+				<paper-item value="TGO">Togo</paper-item>
+				<paper-item value="TKL">Tokelau</paper-item>
+				<paper-item value="TON">Tonga</paper-item>
+				<paper-item value="TTO">Trinidad and Tobago</paper-item>
+				<paper-item value="TUN">Tunisia</paper-item>
+				<paper-item value="TUR">Turkey</paper-item>
+				<paper-item value="TKM">Turkmenistan</paper-item>
+				<paper-item value="TCA">Turks and Caicos Islands</paper-item>
+				<paper-item value="TUV">Tuvalu</paper-item>
+				<paper-item value="UGA">Uganda</paper-item>
+				<paper-item value="UKR">Ukraine</paper-item>
+				<paper-item value="ARE">United Arab Emirates</paper-item>
+				<paper-item value="GBR">United Kingdom</paper-item>
+				<paper-item value="UMI">United States Minor Outlying Islands</paper-item>
+				<paper-item value="USA">United States of America</paper-item>
+				<paper-item value="URY">Uruguay</paper-item>
+				<paper-item value="VIR">US Virgin Islands</paper-item>
+				<paper-item value="UZB">Uzbekistan</paper-item>
+				<paper-item value="VUT">Vanuatu</paper-item>
+				<paper-item value="VAT">Vatican City</paper-item>
+				<paper-item value="VEN">Venezuela</paper-item>
+				<paper-item value="VNM">Vietnam</paper-item>
+				<paper-item value="WLF">Wallis and Futuna</paper-item>
+				<paper-item value="ESH">Western Sahara</paper-item>
+				<paper-item value="YEM">Yemen</paper-item>
+				<paper-item value="ZMB">Zambia</paper-item>
+				<paper-item value="ZWE">Zimbabwe</paper-item>			
+			</paper-menu>
+	    </paper-dropdown-menu>
+	
+	</template> 
+
+<script>
+	Polymer({
+		is : "countries-dropdown",
+		
+		properties:{
+			selection:{type:String, value:"GBR"}
+		}
+	});
+</script> 
+
+</dom-module>
+

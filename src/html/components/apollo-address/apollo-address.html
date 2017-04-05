@@ -1,0 +1,66 @@
+<!doctype html>
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/iron-validator-behavior/iron-validator-behavior.html">
+
+<link rel="import" href="countries-dropdown.html">
+
+<dom-module id="apollo-address">
+    <template>        
+
+        <paper-input id="addressLine1" auto-validate required pattern="[-\sa-zA-Z0-9 ]{1,60}" error-message="{{addressline1error}}" name="addressLine1" label="Address Line1" class="reg" 
+        bind-value="{{addressLine1}}"></paper-input>
+
+        <paper-input id="addressLine2" name="addressLine2" label="Address Line2" class="reg" bind-value="{{addressLine2}}"></paper-input>
+
+        <paper-input id="city" auto-validate required pattern="[^-\s]{1,}" error-message="{{cityerror}}" name="city" label="Town / City" class="reg" bind-value="{{city}}"></paper-input>
+
+        <paper-input id="state" name="state" label="County" class="reg" bind-value="{{state}}"></paper-input>
+
+        <paper-input id="postalCode" name="postalCode" auto-validate required pattern="[0-9]{1,5}" error-message="{{postalcodeerror}}" label="Postal Code" class="reg" bind-value="{{postalCode}}"></paper-input>
+        
+        <countries-dropdown selection={{countrySelection}}></countries-dropdown>
+
+    </template>
+    <script>
+    Polymer({
+        is: "apollo-address",
+
+        behaviors: [
+            Polymer.IronValidatorBehavior
+        ],
+        properties: {
+            addressline1error: {
+                type: String,
+                value: ''
+            },
+            cityerror: {
+                type: String,
+                value: ''
+            },
+            postalcodeerror: {
+                type: String,
+                value: ''
+            },
+             addressLine1: {
+                type: String,
+                notify: true
+            },
+             addressLine2: {
+                type: String
+            },
+             city: {
+                type: String
+            },
+             state: {
+                type: String
+            },
+             postalCode: {
+                type: String
+            },
+             countrySelection: {
+                type: String
+            }
+        }
+    });
+    </script>
+</dom-module>

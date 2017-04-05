@@ -4,6 +4,7 @@
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<!doctype html>
 <link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -12,7 +13,11 @@
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-item.html">
+
 <link rel="import" href="../apollo-style/apollo-style.html">
+<link rel="import" href="../apollo-address/apollo-address.html">
+<link rel="import" href="../apollo-password/apollo-password.html">
+
 <script src="../../bower_components/moment/min/locales.js"></script>
 <dom-module id="self-registration">
     <template>
@@ -43,7 +48,7 @@
             <div class="card-content">
                 <div class="horizontal-section">
                     <div class="horizontal-section-container">
-                        <paper-dropdown-menu label="Title" class="custom" herizontal-align bind-value="{{title}}">
+                        <paper-dropdown-menu label="Title" class="custom" herizontal-align bind-value="{{profile.title}}">
                             <paper-listbox class="dropdown-content">
                                 <paper-item>""</paper-item>
                                 <paper-item>Mr</paper-item>
@@ -52,26 +57,22 @@
                                 <paper-item>Dr</paper-item>
                             </paper-listbox>
                         </paper-dropdown-menu>
-                        <paper-input label="First Name" bind-value="{{firstName}}"></paper-input>
-                        <paper-input label="Last Name" bind-value="{{lastName}}"></paper-input>
+                        <paper-input label="First Name" bind-value="{{profile.firstName}}"></paper-input>
+                        <paper-input label="Last Name" bind-value="{{profile.lastName}}"></paper-input>
                     </div>
                 </div>
-                <paper-input label="Email" id="inputWithButton" bind-value="{{email}}">
+                <paper-input label="Email" id="inputWithButton" bind-value="{{profile.email}}">
                     <iron-icon icon="mail" prefix></iron-icon>
                 </paper-input>
-                <paper-input label="Street Address" bind-value="{{street}}"></paper-input>
-                <paper-input label="City" bind-value="{{city}}"></paper-input>
-                <paper-dropdown-menu label="State" class="custom" herizontal-align bind-value="{{state}}">
-                    <paper-listbox class="dropdown-content">
-                        <paper-item>AL</paper-item>
-                        <paper-item>CA</paper-item>
-                        <paper-item>IL</paper-item>
-                        <paper-item>MN</paper-item>
-                    </paper-listbox>
-                </paper-dropdown-menu>
-                <paper-input label="Zip" bind-value="{{zipcode}}"></paper-input>
-                <paper-input label="Phone" bind-value="{{phone}}"></paper-input>
-                <paper-date-picker-item icon="icons:date-range" placeholder="Select Date of Birth" date="{{dob}}" date-format="ll"></paper-date-picker-item>
+                <apollo-password ></apollo-password>
+                <apollo-address address-line1="{{profile.addressLine1}}"
+                    address-line2="{{profile.addressLine2}}"
+                    city="{{profile.city}}"
+                    state="{{profile.state}}"
+                    postal-code="{{profile.postalCode}}"
+                    country-selection="{{profile.countrySelection}}"></apollo-address>
+                <paper-input label="Phone" bind-value="{{profile.phone}}"></paper-input>
+                <paper-date-picker-item icon="icons:date-range" placeholder="Select Date of Birth" date="{{profile.dob}}" date-format="ll"></paper-date-picker-item>
                 <div class="spacer bottom">
                     <div>
                         <paper-checkbox checked class="accent">
@@ -102,8 +103,25 @@
             profile: {
                 type: Object,
                 notify: false,
-                reflectToAttribute: false
-            },
+                reflectToAttribute: true,
+                value: function(){
+                    return {
+                      title: '',
+                      firstName: '',
+                      lastName: '',
+                      addressLine1: '',
+                      addressLine2: '',
+                      city: '',
+                      state: '',
+                      postalCode: '',
+                      countrySelection: '',
+                      phone: '',
+                      dob: '',
+                      optEmail: true,
+                      optPhone: true
+                    };
+                  }
+              },
             remoteProfile: {
                 type: Object,
                 notify: false,
@@ -111,21 +129,11 @@
             }
         },
 
-        handleClick: function(e, detail) {
-            var person = {
-                firstName: this.firstName,
-                middleName: this.middleName,
-                lastName: this.lastName,
-                email: this.email,
-                street: this.street,
-                city: this.city,
-                state: this.state,
-                zip: this.zipcode
-            };
-            this.profile = person;
+        handleClick: function(e, detail) {          
+            console.log(this.profile);
 
-            var service = document.querySelector('#profileService');
-            service.generateRequest();
+            //var service = document.querySelector('#profileService');
+            //service.generateRequest();
         },
 
         handleResponse: function(e, res) {
