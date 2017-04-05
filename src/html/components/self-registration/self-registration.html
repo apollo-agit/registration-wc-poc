@@ -1,3 +1,4 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
@@ -9,37 +10,35 @@
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-item.html">
 
+<link rel="import" href="../apollo-style/apollo-style.html">
 
+<script src="../../bower_components/moment/min/locales.js"></script>
 
 <dom-module id="self-registration">
     <template>
         <style is="custom-style">
-        paper-dropdown-menu.custom {
+        paper-dropdown-menu {
             margin-right: 1rem;
-            color: var(--paper-grey);
-            --paper-input-container-label: {
-                color: var(--paper-grey);
-            }
-            --paper-dropdown-menu-input: {
-                .paper-input-container-1 .unfocused-line.paper-input-container {
-                    border-bottom: 1px solid var(--paper-grey);
-                }
-            }
+            --paper-input-color: var(--apollo-primary-color);
+            --paper-input-container-color: var(--apollo-primary-color);
+            --paper-input-container-focus-color: var(--apollo-accent-color);            
         }
         
         paper-input {
             max-width: 400px;
             margin-right: 1rem;
-            --paper-input-color: var(--paper-grey);
-            --paper-input-container-color: var(--paper-grey);
+            --paper-input-color: var(--apollo-primary-color);
+            --paper-input-container-color: var(--apollo-primary-color);
+            --paper-input-container-focus-color: var(--apollo-accent-color);
             --iron-icon-1 {
-                background: var(--paper-grey);
+                background: var(--apollo-primary-color);
             }
         }
         
         paper-card {
-            color: var(--paper-grey);
+            color: var(--apollo-primary-color);
             --paper-card-header-color: white;
             @apply(--layout-vertical);
             @apply(--layout-wrap);
@@ -60,18 +59,16 @@
         }
         
         paper-checkbox.blue {
-            align-self: center;
-            border: 1px solid var(--paper-blue-200);
-            padding: 8px 16px;
-            --paper-checkbox-checked-color: var(--paper-light-blue-500);
-            --paper-checkbox-checked-ink-color: var(--paper-light-blue-500);
-            --paper-checkbox-unchecked-color: var(--paper-light-blue-900);
-            --paper-checkbox-unchecked-ink-color: var(--paper-light-blue-900);
-            --paper-checkbox-label-color: var(--paper-blue-500);
-            --paper-checkbox-label-spacing: 0;
-            --paper-checkbox-margin: 8px 16px 8px 0;
-            --paper-checkbox-vertical-align: top;
-            margin-top: 1rem;
+            --paper-checkbox-checked-color: var(--apollo-accent-color);
+            --paper-checkbox-checked-ink-color: var(--apollo-accent-color);
+            --paper-checkbox-unchecked-color: var(--apollo-accent-color);
+            --paper-checkbox-unchecked-ink-color: var(--apollo-accent-color);
+            --paper-checkbox-label-color: var(--apollo-primary-color);
+            margin-top: 1.5rem;
+        }
+
+        .paper-date-picker-item > paper-item-body {
+            color: var(--apollo-primary-color);
         }
         </style>
         <div class="centered">
@@ -92,7 +89,7 @@
                             <paper-input label="Last Name" bind-value="{{lastName}}"></paper-input>
                         </div>
                     </div>
-                    <paper-input label="email" id="inputWithButton" bind-value="{{email}}">
+                    <paper-input label="Email" id="inputWithButton" bind-value="{{email}}">
                         <iron-icon icon="mail" prefix></iron-icon>
                     </paper-input>
                     <paper-input label="Street Address" bind-value="{{street}}"></paper-input>
@@ -107,15 +104,16 @@
                     </paper-dropdown-menu>
                     <paper-input label="Zip" bind-value="{{zipcode}}"></paper-input>
                     <paper-input label="Phone" bind-value="{{phone}}"></paper-input>
+                    <paper-date-picker-item icon="icons:date-range" placeholder="Select Date of Birth" date="{{dob}}" date-format="ll"></paper-date-picker-item>
                 </div>
                 <div>
                     <paper-checkbox checked class="blue">
-                        Opt in Marketing Email
+                        Yes! Send me announcements by email.
                     </paper-checkbox>
                 </div>
                 <div>
                     <paper-checkbox checked class="blue">
-                        Opt in Marketing Phone
+                        Yes! Please call me with vital updates.
                     </paper-checkbox>
                 </div>
             </paper-card>
