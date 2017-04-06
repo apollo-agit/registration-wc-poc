@@ -28,13 +28,6 @@
 
 		<label hidden$="[[!label]]" aria-hidden="true" for="input">[[label]]</label>
 
-        disabled$="[[disabled]]"
-        no-label-float="[[noLabelFloat]]"
-        always-float-label="[[_computeAlwaysFloatLabel(alwaysFloatLabel,placeholder)]]"
-        invalid="[[invalid]]">
-
-      <label hidden$="[[!label]]">[[label]]</label>
-
       <input is="iron-input" id="input"
           type="email"
           required$="[[required]]"
@@ -118,6 +111,7 @@
        * @return {boolean} Whether the input is currently valid or not.
        */
       validate: function() {
+      	console.log("validate");
         var valid;
         // Empty, non-required input is valid.
         if (!this.required && this.value == '') {
@@ -147,6 +141,7 @@
        */
       _onFocusedChanged: function(focused) {
         if (!focused) {
+        	console.log("_onFocusedChanged");
           this._handleAutoValidate();
         }
       }
