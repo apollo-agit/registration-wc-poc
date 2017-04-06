@@ -16,6 +16,7 @@
 <link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-item.html">
 <link rel="import" href="../../bower_components/re-captcha/re-captcha.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/gold-phone-input/gold-phone-input.html">
 
 
 <link rel="import" href="../apollo-email-input/apollo-email-input.html">
@@ -65,12 +66,12 @@
             max-width: 400px;
         }
         
-        #successdiag{
+        #successdiag {
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
-
+        
         #successdiag h2 {
             text-align: center;
         }
@@ -78,7 +79,7 @@
         .sucess-diag p {
             color: var(--apollo-primary-color);
         }
-
+        
         paper-button.apollo-white {
             background: white;
         }
@@ -100,12 +101,14 @@
                     </div>
                 </div>
                 <div class="vertical-section-container">
-                    <apollo-email-input  bind-value="{{profile.email}}" required auto-validate>
-                     <iron-icon icon="mail" prefix></iron-icon>
+                    <apollo-email-input bind-value="{{profile.email}}" required auto-validate>
+                        <iron-icon icon="mail" prefix></iron-icon>
                     </apollo-email-input>
                     <apollo-password></apollo-password>
                     <apollo-address address-line1="{{profile.addressLine1}}" address-line2="{{profile.addressLine2}}" city="{{profile.city}}" state="{{profile.state}}" postal-code="{{profile.postalCode}}"></apollo-address>
-                    <paper-input label="Phone" bind-value="{{profile.phone}}"></paper-input>
+
+                    <gold-phone-input country-code="33" label="Phone" phone-number-pattern="X-XX-XX-XX-XX">
+                    </gold-phone-input value="{{profile.phone}}">
 
                     <paper-date-picker-item id="dob" icon="icons:date-range" placeholder="Select Date of Birth" date="{{profile.dob}}" date-format="ll"></paper-date-picker-item>
 
@@ -140,21 +143,21 @@
         <iron-ajax id="profileService" method="POST" content-type="application/json" body="{{profile}}" url="http://localhost:5555/api/profile" handle-as="json" on-response="handleResponse" debounce-duration="300">
         </iron-ajax>
 
- 
-            <paper-dialog id="successdiag"  modal>
-                <div class="sucess-diag">
-                    <h2>{{profile.firstName}} {{profile.lastName}}</h2>
-                    <paper-dialog-scrollable>
-                        <p>Thank you for regerstring.</p>
-                        <p>Please continue to shopping cart.</p>
-                    </paper-dialog-scrollable>
-                    <div class="buttons center">      
-                        <iron-icon icon="av:play-circle-outline"></iron-icon>
-                    </div>
-                </div>
 
-            </paper-dialog>
-    
+        <paper-dialog id="successdiag" modal>
+            <div class="sucess-diag">
+                <h2>{{profile.firstName}} {{profile.lastName}}</h2>
+                <paper-dialog-scrollable>
+                    <p>Thank you for regerstring.</p>
+                    <p>Please continue to shopping cart.</p>
+                </paper-dialog-scrollable>
+                <div class="buttons center">
+                    <iron-icon icon="av:play-circle-outline"></iron-icon>
+                </div>
+            </div>
+
+        </paper-dialog>
+
 
     </template>
     <script>
