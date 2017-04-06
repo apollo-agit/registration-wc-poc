@@ -18,6 +18,7 @@
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 
 
+<link rel="import" href="../apollo-email-input/apollo-email-input.html">
 <link rel="import" href="../apollo-style/apollo-style.html">
 <link rel="import" href="../apollo-address/apollo-address.html">
 <link rel="import" href="../apollo-password/apollo-password.html">
@@ -99,9 +100,9 @@
                     </div>
                 </div>
                 <div class="vertical-section-container">
-                    <paper-input label="Email" id="inputWithButton" bind-value="{{profile.email}}">
-                        <iron-icon icon="mail" prefix></iron-icon>
-                    </paper-input>
+                    <apollo-email-input label="Email" id="inputWithButton" bind-value="{{profile.email}}">
+                     <iron-icon icon="mail" prefix></iron-icon>
+                    </apollo-email-input>
                     <apollo-password></apollo-password>
                     <apollo-address address-line1="{{profile.addressLine1}}" address-line2="{{profile.addressLine2}}" city="{{profile.city}}" state="{{profile.state}}" postal-code="{{profile.postalCode}}"></apollo-address>
                     <paper-input label="Phone" bind-value="{{profile.phone}}"></paper-input>
