@@ -2,8 +2,19 @@
 
 <link rel="import" href="./countries.html">
 
- <script>
-        // we will build this in the loop below
+<script>
+CountryMaskBehavior = {
+
+         properties: {
+        mask: {
+          type: Boolean,
+          value: false,
+          notify: true,
+          observer: '_highlightChanged'
+        }
+      },
+
+
         var allCountries = [];
         var allCountryCodes = {};
 
@@ -52,4 +63,6 @@
                 allCountries[countryIdx].dialCode,
                 allCountries[countryIdx].hasAreaCodes
             );
-        </script>
+
+        }
+</script>
