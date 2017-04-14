@@ -13,12 +13,30 @@
 		--apollo-white: white;
 
         --apollo-margin: .5rem;
-        --apollo-element-height: 40px;
+        --apollo-element-height: 38px;
+        --apollo-element-dropdown-height: 40px;
 
         --apollo-border-style: {
             border-style: solid;
             border-width: 1px 1px 1px 1px;
             border-color: var(--apollo-primary-color);
+        }
+
+        --paper-dropdown-menu-input: {
+                height: var(--apollo-element-dropdown-height);
+                @apply(--apollo-border-style);
+        };
+
+        paper-dropdown-menu-light: {
+            --paper-dropdown-menu-color: var(--apollo-primary-color);
+            --paper-input-container-focus-color: var(--apollo-accent-color);
+            --paper-dropdown-menu-focus-color: var(--apollo-accent-color);
+
+            --paper-dropdown-menu-label: {
+                margin-left: var(--apollo-margin);
+            }
+
+      
         }
 
         paper-input {
@@ -29,21 +47,21 @@
             --paper-input-container-input: {
                 height: var(--apollo-element-height);
                 @apply(--apollo-border-style);
-            }
+            };
 
             --paper-input-container-label: {
                 margin-top: var(--apollo-margin);
                 margin-left: var(--apollo-margin);
-            }
+            };
 
             --paper-input-container-label-floating: {                
                 margin-top: 0;
                 margin-left: var(--apollo-margin);
-            }
+            };
 
             --paper-input-container-underline: {
                 border-bottom: 0;
-            }
+            };
 
         }
 
@@ -53,19 +71,19 @@
             --paper-checkbox-unchecked-color: var(--apollo-accent-color);
             --paper-checkbox-unchecked-ink-color: var(--apollo-accent-color);
             --paper-checkbox-label-color: var(--apollo-primary-color);
-        }
+        };
 
         paper-button {
         	--paper-button-ink-color: var(--apollo-accent-color);
-        }
+        };
 
         paper-calendar: {
             --primary-text-color: var(--apollo-accent-color);
-        }
+        };
 
         .paper-date-picker-dialog {
             background-color: var(--apollo-accent-color);
-        }
+        };
 	}
 
 	paper-button {

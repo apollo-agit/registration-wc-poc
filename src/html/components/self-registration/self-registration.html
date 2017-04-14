@@ -7,7 +7,7 @@
 <link rel="import" href="../../bower_components/iron-input/iron-input.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
-<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
@@ -83,19 +83,27 @@
         paper-button.apollo-white {
             background: white;
         }
+        
+        div.dropdown {
+            margin-top: 12px;
+            margin-right: 1rem;
+        }
+
         </style>
         <paper-card class="custom" elevation="3">
             <div class="card-content">
                 <div class="horizontal-section">
                     <div class="horizontal-section-container">
-                        <paper-dropdown-menu label="Title" class="custom" herizontal-align bind-value="{{profile.title}}">
-                            <paper-listbox class="dropdown-content">
-                                <paper-item>Mr</paper-item>
-                                <paper-item>Mrs</paper-item>
-                                <paper-item>Ms</paper-item>
-                                <paper-item>Dr</paper-item>
-                            </paper-listbox>
-                        </paper-dropdown-menu>
+                        <div class="dropdown">
+                            <paper-dropdown-menu-light label="Title" class="mycustom" herizontal-align bind-value="{{profile.title}}">
+                                <paper-listbox class="dropdown-content">
+                                    <paper-item>Mr</paper-item>
+                                    <paper-item>Mrs</paper-item>
+                                    <paper-item>Ms</paper-item>
+                                    <paper-item>Dr</paper-item>
+                                </paper-listbox>
+                            </paper-dropdown-menu-light>
+                        </div>
                         <paper-input label="First Name" bind-value="{{profile.firstName}}"></paper-input>
                         <paper-input label="Last Name" bind-value="{{profile.lastName}}"></paper-input>
                     </div>
