@@ -7,21 +7,44 @@
 <style is="custom-style">
 
 	:root  {
-		--apollo-primary-color: var(--paper-grey-500);
+		--apollo-primary-color: #D8D8D8;
 		--apollo-accent-color: var(--paper-cyan-500);
         --apollo-warn-color: var(--paper-pink-400);
 		--apollo-white: white;
 
-	    paper-dropdown-menu {
-            --paper-input-color: var(--apollo-primary-color);
-            --paper-input-container-color: var(--apollo-primary-color);
-            --paper-input-container-focus-color: var(--apollo-accent-color);            
+        --apollo-margin: .5rem;
+        --apollo-element-height: 40px;
+
+        --apollo-border-style: {
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            border-color: var(--apollo-primary-color);
         }
-        
+
         paper-input {
             --paper-input-color: var(--apollo-primary-color);
             --paper-input-container-color: var(--apollo-primary-color);
             --paper-input-container-focus-color: var(--apollo-accent-color);
+
+            --paper-input-container-input: {
+                height: var(--apollo-element-height);
+                @apply(--apollo-border-style);
+            }
+
+            --paper-input-container-label: {
+                margin-top: var(--apollo-margin);
+                margin-left: var(--apollo-margin);
+            }
+
+            --paper-input-container-label-floating: {                
+                margin-top: 0;
+                margin-left: var(--apollo-margin);
+            }
+
+            --paper-input-container-underline: {
+                border-bottom: 0;
+            }
+
         }
 
         paper-checkbox {
@@ -35,8 +58,6 @@
         paper-button {
         	--paper-button-ink-color: var(--apollo-accent-color);
         }
-
-  
 
         paper-calendar: {
             --primary-text-color: var(--apollo-accent-color);
